@@ -1,0 +1,16 @@
+{
+  "name": "03-css",
+  "private": true,
+  "scripts": {
+    "build": "slidev build --base /css-slides/",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.42.10",
+    "@slidev/theme-default": "^0.21.2"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.38.1"
+  }
+}
