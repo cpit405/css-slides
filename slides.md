@@ -571,13 +571,9 @@ h1 {font-color: red;} /* This is a CSS comment */
 
 # The CSS Box Model (II)
 
-
-
 <img src="/images/css-box-model.svg" height="100px">
 
 
-
-
-
-
+# CSS Units
+...
 
