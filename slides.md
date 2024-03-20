@@ -310,18 +310,23 @@ layout: two-cols
 
 # 5. Attribute Selectors (II)
 
-|  Selector | Example  |  Description |
+|  Selector | Description   |  Example |
 |-----------|----------|--------------|
-| `[attr]` | `[alt]`| Matches elements with an attr attribute|
-| `[attr=value]`  | `a[href="https://example.com"]` | Matches elements with an attr attribute whose value is exactly value |
-| `[attr~=value]` | `p[class~="special"]` | Matches elements with an attr attribute whose value is exactly value, or contains value in its (space separated) list of values.|
-| `[attr^=value]`   | `li[class^="box-"]`   |  Matches elements with an attr attribute, whose value begins with value. |
-| `[attr$=value]`  |  `li[class$="-box"]`  | Matches elements with an attr attribute whose value ends with value.  |
-| `[attr*=value]`  | `li[class*="box"]`  |  Matches elements with an attr attribute whose value contains value anywhere within the string. |
+| `[attr]` |  Matches elements that have the attr attribute declared |`input[required]` |
+| `[attr=value]`  | Matches elements with an attr attribute whose value is exactly value | `a[href="https://example.com"]` |
+| `[attr~=value]` | Matches elements with an attr attribute whose value is exactly value, or contains value in its (space separated) list of values.| `p[class~="special"]` |
+| `[attr^=value]`   |  Matches elements with an attr attribute, whose value begins with value. | `li[class^="box-"]` |
+
+---
+
+# 5. Attribute Selectors (III)
+
+|  Selector | Description   |  Example |
+|-----------|----------|--------------|
+| `[attr$=value]`   | Matches elements with an attr attribute whose value ends with value.  | `li[class$="-box"]` |
+| `[attr*=value]`   |  Matches elements with an attr attribute whose value contains value anywhere within the string. | `li[class*="box"]` |
  	 	
-		
- 		
- 	 	
+ 	
 ---
 layout: center
 ---
