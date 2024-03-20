@@ -454,7 +454,7 @@ ul li:last-child {
 
 <div v-click>
 
-<iframe class="jsfiddle" width="100%" height="80%" src="//jsfiddle.net/kalharbi/1byazwgj/embedded/css,html,result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+<iframe class="jsfiddle" width="100%" height="300" src="//jsfiddle.net/kalharbi/1byazwgj/embedded/css,html,result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 </div>
 
