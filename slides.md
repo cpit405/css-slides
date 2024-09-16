@@ -12,9 +12,6 @@ lineNumbers: false
 # some information about the slides, markdown enabled
 info: | 
     CSS: Cascading Style Sheets
-# persist drawings in exports and build
-drawings:
-  persist: false
 # page transition
 transition: slide-left
 # use UnoCSS
@@ -25,6 +22,22 @@ monaco: true
 selectable: true
 # Make slides downloadable as PDF
 download: true
+exportFilename: css-slides
+export:
+  format: pdf
+  timeout: 30000
+  dark: false
+  withClicks: false
+  withToc: false
+# enable slide recording and drawing
+record: build
+# persist drawings in exports and build
+drawings:
+  enabled: true
+  persist: false
+  presenterOnly: false
+  syncAll: true
+hideInToc: true
 ---
 
 # CSS: Cascading Style Sheets
@@ -33,8 +46,16 @@ download: true
 
 
 <div class="absolute left-30px bottom-30px">
-<p>Last updated: Spring 24</p>
+<p>Last updated: Fall 24</p>
 </div>
+
+---
+hideInToc: true
+---
+
+# Table of Contents
+
+<Toc columns="2" maxDepth="1" mode="all" class="toc-list"/>
 
 ---
 layout: center
@@ -70,27 +91,28 @@ layout: center
 
 ---
 
-# History
+## History
 - **1994**: CSS was proposed by Håkon Wium Lie, a Norwegian web pioneer and CTO of Opera Software, the company behind the [Opera browser](https://www.opera.com/).
   - It was proposed as a way to separate content and presentation.
 - **1996**: The first version of CSS was invented.
 - **1998**: CSS 2 specification was released.
 - **1999**: CSS 3 specification was released with the goal to modularize the CSS specification.
-  - CSS no longer Instead, it evolves through levels, where each new level builds upon the old one.
+  - CSS no longer uses versions for the whole specs. Instead, it evolves into modules and levels (e.g, CSS Grid Layout Level 1, CSS Grid Layout Level 2, etc.)
 - **2006-2009**: CSS preprocessors like `Sass` and `Less` released in response to stylesheets getting larger, more complex, and harder to maintain.
-- **2011-Present**:   Modern frameworks like Bootstrap, Foundation (2011), Semantic UI (2013), and Tailwind CSS (2017) received wide adoption.
+- **2011-Present**: Modern frameworks like Bootstrap, Foundation (2011), Semantic UI (2013), and Tailwind CSS (2017) received wide adoption.
 - **2015-Present**: CSS continues to evolve with new features like animations, flexbox, and grid layout.
 
 
 ---
 layout: center
+hideInToc: true
 ---
 
 # CSS Fundamentals
 
 ---
 
-# Basic Structure
+## Basic Structure
 
 <br />
 
@@ -99,7 +121,7 @@ layout: center
 
 ---
 
-# Adding and Applying CSS to HTML
+# Adding CSS to HTML
 
 There are three main ways to apply CSS to an HTML document.
 
@@ -132,7 +154,7 @@ There are three main ways to apply CSS to an HTML document.
 
 ---
 
-# External CSS with media queries
+## External CSS with media queries
 
 - We can also conditionally load an external stylesheet with **media queries**. 
 - This works by setting a media type in the `media` attribute. 
@@ -169,14 +191,14 @@ footer{
 
 ---
 
-# Internal CSS
+## Internal CSS
 - Internal styles are defined within the `<style>` element, which is defined inside the `<head>` section of the HTML page:
 
 <iframe class="jsfiddle" width="100%" height="80%" src="//jsfiddle.net/kalharbi/45xtpy2h/embedded/html,result/?menuColor=ccc&accentColor=000" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 ---
 
-# Inline CSS
+## Inline CSS
 - An inline style is defined within a single HTML element using the HTML attribute `style`.
 
 <iframe class="jsfiddle" width="100%" height="80%" src="//jsfiddle.net/kalharbi/xzjvw2dm/embedded/html,result/?menuColor=ccc&accentColor=000" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
@@ -184,7 +206,7 @@ footer{
 
 ---
 
-# Browser Default / User-agent stylesheets
+## Browser Default / User-agent stylesheets
 - The web browser may apply a default style when rendering an HTML page.
 - Every browser has a set of default styles for HTML elements. These are known as the browser's default styles or user agent styles.
 - These default styles can vary from one browser to another. This is why the same webpage can look different when viewed in different browsers.
@@ -194,7 +216,7 @@ footer{
 
 ---
 
-# User stylesheets
+## User stylesheets
 
 - Although not common, some browsers provide the capability for users to customize styles according to their preferences by using a personalized user stylesheet.
 - For example, in FireFox, the configuration editor (`about:config` page) lists some settings known as advanced preferences.
@@ -224,11 +246,13 @@ When there is more than one style defined in an HTML document, the style will be
 2. External and internal style sheets will be applied depending on which one is defined **last** in the head section.
 3. Browser default style.
 
+
+
 ---
 layout: two-cols
 ---
 
-## CSS Selectors
+# CSS Selectors
 
 <br>
 
@@ -250,6 +274,7 @@ layout: two-cols
 7. CSS Pseudo-classes
     - Visited Links `:visited`
     - Mouse is over elements `:hover`
+    - Form input has received focus `:focus`.
     - Form input is required `:required`
     - Form input is optional `:optional`
     - First child of an element `:first-child`
@@ -259,7 +284,7 @@ layout: two-cols
 
 ---
 
-# 1. Universal Selector 
+## 1. Universal Selector 
 ## Syntax: `* { style properties }`
 <br>
 
@@ -271,7 +296,7 @@ layout: two-cols
 
 ---
 
-# 2. Element selector 
+## 2. Element selector 
 ## Syntax: `element { style properties }`
 <br>
 
@@ -279,7 +304,7 @@ layout: two-cols
 
 ---
 
-# 3. ID selectors 
+## 3. ID selectors 
 ## Syntax: `#id-value { style properties }`
 <br>
 
@@ -291,7 +316,7 @@ layout: two-cols
 
 ---
 
-# 4. Class Selector 
+## 4. Class Selector 
 ## Syntax: `.className { style properties }`
 
 <br>
@@ -299,7 +324,7 @@ layout: two-cols
 
 ---
 
-# 5. Attribute Selector (I)
+## 5. Attribute Selector (I)
 ## Syntax: `{ element[attribute]{ style properties }`
 
 <br>
@@ -308,7 +333,7 @@ layout: two-cols
 
 ---
 
-# 5. Attribute Selectors (II)
+## 5. Attribute Selectors (II)
 
 |  Selector | Description   |  Example |
 |-----------|----------|--------------|
@@ -319,7 +344,7 @@ layout: two-cols
 
 ---
 
-# 5. Attribute Selectors (III)
+## 5. Attribute Selectors (III)
 
 |  Selector | Description   |  Example |
 |-----------|----------|--------------|
@@ -331,7 +356,7 @@ layout: two-cols
 layout: center
 ---
 
-# 6. Combinator selectors
+## 6. Combinator selectors
 <br>
 
 ## 6.1 Descendant `selector1 selector2`
@@ -348,7 +373,7 @@ layout: center
 
 ---
 
-# 6.1 Descendant combinator
+## 6.1 Descendant combinator
 ## Syntax: `element1 element2`
 
 Matches the descendant element(s) of the first element.
@@ -360,7 +385,7 @@ Matches the descendant element(s) of the first element.
 
 ---
 
-# 6.2 Child combinator
+## 6.2 Child combinator
 ## Syntax: `element1 > element2`
 
 Matches the direct child or children of the first element.
@@ -369,7 +394,7 @@ Matches the direct child or children of the first element.
 
 ---
 
-# 6.3 General sibling combinator
+## 6.3 General sibling combinator
 ## Syntax: `element1 ~ element2`
 
 
@@ -380,7 +405,7 @@ Matches all siblings of the first element that are following the first element b
 
 ---
 
-# 6.4 Adjacent sibling combinator
+## 6.4 Adjacent sibling combinator
 ## Syntax: `element1 + element2`
 
 Matches the immediate sibiling of the first element that is immediately following the first element.
@@ -390,7 +415,7 @@ Matches the immediate sibiling of the first element that is immediately followin
 
 ---
 
-# 7. CSS Pseudo-classes (I)
+## 7. CSS Pseudo-classes (I)
 ## Syntax: `selector:pseudo-class { style properties }`
 
 - In CSS, a pseudo-class is a keyword added to a selector to indicate a special state of the element (e.g. when the mouse cursor is over the element or the element was clicked on).
@@ -400,12 +425,13 @@ Matches the immediate sibiling of the first element that is immediately followin
 
 ---
 
-# 7. CSS Pseudo-classes (II)
+## 7. CSS Pseudo-classes (II)
 
 | Pseudo-class | Description |
 | --- | --- |
 | `:visited` | Matches links that have been visited. |
 | `:hover` | Matches when the mouse pointer is over an element. |
+| `:focus` | Matches when an element such as an input form has received focus (e.g., clicked on or selected with the keyboard's **Tab** key) |
 | `:required` | Matches when a form element is required. |
 | `:optional` | Matches when a form element is optional. |
 | `:first-child` | Matches an element that is the *first* of its siblings. |
@@ -414,7 +440,7 @@ Matches the immediate sibiling of the first element that is immediately followin
 
 ---
 
-# 7. CSS Pseudo-classes (III): Example 1
+## 7. CSS Pseudo-classes (III): Example 1
 
 <iframe class="jsfiddle" width="100%" height="80%" src="//jsfiddle.net/kalharbi/j5s6rque/embedded/css,html,result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
@@ -423,7 +449,7 @@ Matches the immediate sibiling of the first element that is immediately followin
 layout: two-cols-header
 ---
 
-# 7. CSS Pseudo-classes (IV): Example 2
+## 7. CSS Pseudo-classes (IV): Example 2
 - Consider the following HTML and CSS code. Where would the border appear?
 
 
@@ -460,15 +486,97 @@ ul li:last-child {
 
 ---
 
-# 7. CSS Pseudo-classes (VI): Example 2 (Cont.)
+## 7. CSS Pseudo-classes (VI): Example 2 (Cont.)
 <br>
 
+- Here's the DOM tree illustrating how the CSS rule was applied.
 ![](/images/css-pseudo-classes-nth-child.svg)
+
+---
+
+## 7. CSS Pseudo-classes (VII): `first-child` Example (Question)
+
+- Consider the following HTML code
+
+```html
+<html><head></head>
+<body>
+  <a href="#">First Link</a>
+  <a href="#">Second Link</a>
+  <div>
+    <p>
+      <a href="#">Third Link</a>
+    </p>
+  </div>
+  <a href="#">Fourth Link</a>
+</body>
+</html>
+```
+
+- and CSS code:
+
+```css
+a:first-child {
+  color: red;
+}
+```
+
+#### Which link will appear red and why?
 
 
 ---
 
-# 8. CSS Pseudo-elements (I)
+## 7. CSS Pseudo-classes (VII): `first-child` Example (Answer)
+
+- Both the "First Link" and "Third Link" `<a>` tags are the ones that will appear red.
+
+<iframe class="jsfiddle" width="100%" height="60%" src="//jsfiddle.net/kalharbi/9h7vb4pw/embedded/html,css,result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+---
+
+## 7. CSS Pseudo-classes (VIII): `last-child` Example (Question)
+
+- Consider the following HTML code
+
+```html
+<html><head></head>
+<body>
+  <a href="#">First Link</a>
+  <a href="#">Second Link</a>
+  <div>
+    <p>
+      <a href="#">Third Link</a>
+    </p>
+  </div>
+  <a href="#">Fourth Link</a>
+</body>
+</html>
+```
+
+- and CSS code:
+
+```css
+a:last-child {
+  color: red;
+}
+```
+
+#### Which link will appear red and why?
+
+---
+
+## 7. CSS Pseudo-classes (VIII): `last-child` Example (Answer)
+
+- The "Third Link" `<a>` tag is the only one that will appear red
+- The `:last-child` pseudo-class represents an element that is last among its inclusive siblings.
+  - An inclusive sibling is an object or one of its siblings (share the same non-null parent.). [Source](https://dom.spec.whatwg.org/#concept-tree-inclusive-sibling)
+  - There is a difference between the last element in the source code and the last child of a specific parent element in the DOM tree. `div` is considered the last child of the parent `body` tag.
+
+<iframe class="jsfiddle" width="100%" height="50%" src="//jsfiddle.net/kalharbi/b3t8Las7/embedded/html,css,result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+---
+
+## 8. CSS Pseudo-elements (I)
 
 - In CSS, pseudo-elements are keywords added to element(s) to style a specific part of the element(s). Below are examples of pseudo-elements:
 - `::first-line`
@@ -481,7 +589,7 @@ ul li:last-child {
 
 ---
 
-# 8. CSS Pseudo-elements (II)
+## 8. CSS Pseudo-elements (II)
 
 - `::selection` 
   - This can be used to style an element that has been highlighted by the user (e.g., mouse clicking and dragging the mouse across text).
@@ -498,7 +606,7 @@ The example below shows how to change the font style of the first line and add a
 
 ---
 
-# Example: Navigation Bar
+## Example: Navigation Bar
 Below is the HTML and CSS code for creating a horizontal navigation bar that looks like this:
 
 
@@ -520,7 +628,7 @@ Below is the HTML and CSS code for creating a horizontal navigation bar that loo
 
 ---
 
-# CSS Properties (II)
+## CSS Properties (II)
 
 | CSS Property | Description |
 | --- | --- |
@@ -534,7 +642,7 @@ Below is the HTML and CSS code for creating a horizontal navigation bar that loo
 
 ---
 
-# CSS Properties (III)
+## CSS Properties (III)
 
 | CSS Property | Description |
 | --- | --- |
@@ -548,7 +656,7 @@ Below is the HTML and CSS code for creating a horizontal navigation bar that loo
 
 ---
 
-# CSS Comments
+## CSS Comments
 
 - Comments in CSS start with `/*` and end with `*/` and can span multiple lines.
 - Comments are ignored by the browser, so they don't affect how the CSS is applied.
@@ -559,9 +667,9 @@ h1 {font-color: red;} /* This is a CSS comment */
 
 ---
 
-# The CSS Box Model (II)
+# The CSS Box Model
 
-## Content, Padding, Border, and Margin
+### Content, Padding, Border, and Margin
 
 <br>
 
@@ -578,7 +686,249 @@ h1 {font-color: red;} /* This is a CSS comment */
 
 <img src="/images/css-box-model.svg" height="100px">
 
+---
 
 # CSS Units
-...
 
+- CSS units are measurements used in CSS to express the size, spacing, or other aspects of an element. 
+- CSS units can be absolute or relative.
+- Absolute length units are not recommended for use on screens due to the wide variation in screen sizes.
+- Absolute length units are often used for print fonts and layouts.
+- Relative units are more flexible and responsive than absolute units.
+- Relative units are the foundation of responsive design that work well across various devices and screen sizes.
+
+---
+
+## Absolute length units
+- Absolute length units are often considered to always be the same size. 
+Some of the most useful CSS absolute units are listed below:
+
+- `px`: Pixels. 1px = 1/96th of 1in.
+  - This unit is not an actual physical pixel. It's amagical unit whose value varies by hardware and resolution. The size of 1px depends on the type of device and meant to be small but visible.
+- `cm`: Centimeters. 1cm = 37.8px = 25.2/64in
+- `in`: Inches. 1in = 2.54cm = 96p
+- `pt`: Points. 1pt = 1/72th of 1 in.
+  - This unit is often used for printed documents or ink-on-paper typography. Thus, it's often used with the `font-size` property when creating a custom style for printers. For example, one may create a special CSS for printing only as `<link rel="stylesheet" media="print" href="print.css" />`
+
+---
+layout: two-cols-header
+---
+
+## Absolute length units Example
+
+::left::
+
+```html
+<div class="box-1">
+  Box-1: This is a 200px box
+</div>
+<div class="box-2">
+  Box-2: This is a 10cm box
+</div>
+<div class="box-3">
+  Box-3: This is a 5in box
+</div>
+<div class="box-4">
+  <p>This is 15pt paragraph inside box-4, which is a 600px box</p>
+</div>
+```
+
+::right::
+
+
+```css
+div{
+  border: 1px solid black;
+}
+.box-1{
+  width: 200px;
+}
+.box-2{
+  width: 10cm;
+}
+.box-3{
+  width: 5in;
+}
+.box-4{
+   width: 600px;
+}
+p{
+  font-size: 15pt;
+}
+```
+<div v-click> 
+
+![CSS Absolute length units](/images/css-absolute-units.png)
+
+</div>
+
+---
+
+## Relative length units
+
+- Relative length units are relative to the size of the parent element, the parent element's font, or the size of the viewport. 
+- These units are very helpful when designing web pages that will be rendered on devices of various screens as they scale relative to the size of the viewport.
+- Some of the most useful CSS absolute units are listed below:
+  - `%` Percentages 
+  - `vw` viewport width
+    - 1% of the viewport's width.
+  - `vh` viewport height
+    - 1% of the viewport's height.
+  - `em` element-relative
+    - Relative to font size of the current element or its parent.
+  - `rem` root-relative
+    - Relative to font size of the root element.
+
+
+---
+layout: two-cols-header
+---
+
+## Example: percentages (`%`) vs viewports (`vw` `vh`)
+Percentages are relative to the size of the parent element and viewports are relative to the size of the viewport.
+
+::left::
+
+```html
+<h1>CSS Units: Percentages % vs (viewports)</h1>
+<h2>Percentages are relatives to their parents:</h2>
+<div class="box-1">
+  Box-1: This is a 50% wide box (relative to the body)
+  <div class="box-2">
+    Box-2: This is a 50% wide box inside box-1 (50% relative to box-1)
+  </div>
+</div>
+<h2>vw are relatives to the viewport (screen) and do not follow the parent at all:</h2>
+<div class="parent">
+  parent is 100x100 pixels box
+  <div class="box-3">
+    Box-3: This is a 50vw box (50% of the viewport's width)
+  </div>
+  <div class="box-4">
+    Box-4: This is a 50vh box (50% of the viewport's height)
+  </div>
+</div>
+```
+
+::right::
+
+```css
+div{
+  border: 2px solid black;
+}
+.box-1{
+  width: 50%;
+}
+.box-2{
+  width: 50%;
+}
+.parent{
+  width:100px;
+  height: 100px;
+  border-color: red;
+}
+.box-3{
+  width: 50vw;
+  border-color: blue;
+}
+.box-4{
+  height: 50vh;
+  border-color: green;
+}
+```
+
+---
+
+## Example: percentages (`%`) vs viewports (`vw` `vh`) (Cont.)
+
+![CSS Percentage and Viewport units](/images/css-percentages-viewports.png)
+
+
+---
+layout: two-cols-header
+---
+
+## Example: `rem` vs `em`
+
+Both `rem` and `em` are relative to the defined font size. `rem` is relative the root's font size while `rm` is relative to the parent's font size.
+
+::left::
+
+```html
+<div class="one-rem">1rem</div>
+<div class="one-em">1em</div>
+<div class="two-rem">2rem</div>
+<div class="two-em">2em</div>
+<hr>
+<div class="parent">
+    <div class="one-rem">1rem</div>
+    <div class="one-em">1em</div>
+    <div class="two-rem">2rem</div>
+    <div class="two-em">2em</div>
+</div>
+```
+
+<iframe class="jsfiddle" width="100%" height="80%" src="//jsfiddle.net/kalharbi/wte72y8f/embedded/result,html,css/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+::right::
+
+```css
+.parent{
+    font-size: 40px;
+}
+.one-em{
+    font-size: 1em;
+}
+.one-rem{
+    font-size: 1rem;
+}
+.two-em{
+    font-size: 2em;
+}
+.two-rem{
+    font-size: 2rem;
+}
+```
+
+
+---
+
+# CSS Specificity
+- Specificity is like a ranking system where elements with the highest specificity takes precedence.
+- The selector with the highest specificity will win and be applied.
+  - Inline styles have the **highest specificity**.
+  - ID selectors (e.g., `#title`) are **more specific** than class selectors (e.g., `.title`).
+  - **Less specific** selectors are class selectors (e.g., `.article`), pseudo-class selectors (e.g., `:hover`), and attribute selectors (e.g., [type="text"]).
+  - Finally, the **least specific** selectors are element selectors (e.g., `div`, `h1`, `p`) and pseudo-element selectors (e.g., `::before`, `::after`).
+
+---
+
+## CSS Specificity (II)
+![](/images/CSS-specificity.png)
+
+---
+
+## CSS Specificity (III)
+
+
+- Consider the following HTML and CSS code, what would the color of the `<p>` element be?
+
+```html
+<p id="content" class="article">What is my font color?</p>
+```
+
+```css
+#content{
+  color: blue;
+}
+.article{
+  color: green;
+}
+p {
+  color: red;
+}
+```
+
+<div v-click> 
+<iframe class="jsfiddle" width="100%" height="50%" style="display:inline"  src="//jsfiddle.net/kalharbi/gd1weL5o/embedded/result" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+</div>
