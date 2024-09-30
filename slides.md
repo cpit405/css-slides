@@ -1,8 +1,8 @@
 ---
 # try also 'default' to start simple
 theme: default
-title: 'CSS'
-titleTemplate: '%s - CPIT-405'
+title: "CSS"
+titleTemplate: "%s - CPIT-405"
 # apply any windi css classes to the current slide
 class: text-center
 # https://sli.dev/custom/highlighters.html
@@ -10,14 +10,14 @@ highlighter: shiki
 # show line numbers in code blocks
 lineNumbers: false
 # some information about the slides, markdown enabled
-info: | 
-    CSS: Cascading Style Sheets
+info: |
+  CSS: Cascading Style Sheets
 # page transition
 transition: slide-left
 # use UnoCSS
 css: unocss
 # Make monaco available in the exported SPA
-monaco: true 
+monaco: true
 # Make content selectable/copyable
 selectable: true
 # Make slides downloadable as PDF
@@ -932,3 +932,190 @@ p {
 <div v-click> 
 <iframe class="jsfiddle" width="100%" height="50%" style="display:inline"  src="//jsfiddle.net/kalharbi/gd1weL5o/embedded/result" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 </div>
+
+---
+layout: two-cols-header
+---
+
+## The `!important` Declaration
+
+- `!important` is a CSS declaration that overrides other declarations regardless of specificity.
+- `!important` takes precedence over all other declarations and specificity rules.
+- Consider the following HTML and CSS code, what would the color of each `<h1>` element be?
+
+::left::
+
+### HTML
+
+```html
+<h1 class="title">CPIT 405</h1>
+<h1>CSS</h1>
+```
+
+### CSS
+
+```css
+h1 {
+  color: green !important;
+}
+h1.title {
+  color: red;
+  background: silver;
+}
+```
+
+::right::
+
+<div v-click style="width: 100%; height: 100%;">
+<iframe class="jsfiddle" width="100%" height="70%" style="display:inline"  src="//jsfiddle.net/kalharbi/mcs8zfr5/embedded/result" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+</div>
+
+---
+layout: center
+---
+
+# CSS Layouts
+
+
+> The following topics are **optional, not in the exam,** and serve as supplemental materials to the CSS content.
+
+- Floating and Positioning
+- Flexbox
+- Gridlayout
+
+
+
+
+---
+
+# Floating
+- The `float` property places an element on the left or right side of its container, allowing text and inline elements to wrap around it.
+- The `float` property can be set to `left`, `right`, `inline-start`, `inline-end`, or `none`.
+
+<img alt="css float" src="/images/css-float.png" style="display:block; width:80%; height:65%;" />
+
+---
+
+## Floating Example
+
+- The `float` CSS property:
+  ```css
+  img.left {float: left;}
+  ```
+- Example:
+
+<iframe class="jsfiddle" width="100%" height="60%" style="display:inline"  src="//jsfiddle.net/kalharbi/gzeoc16u/embedded/html,css,result" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+
+
+---
+
+# Clearing
+- The `clear` property places an element below any preceding floating elements.
+  - It controls the behavior of elements next to floated elements.
+  - It prevents elements from wrapping around floated elements
+- The `clear` property can be set to `left`, `right`, `both`, or `none`.
+
+<iframe class="jsfiddle" width="100%" height="60%" style="display:inline"  src="//jsfiddle.net/kalharbi/04rywc3k/embedded/html,css,result" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+---
+layout: full
+---
+
+## Float and Clear for layouts (I)
+
+- Aside from being used for wrapping text around elements such as images, `float` and `clear` can be used to create  web layouts.
+
+<div class="flex items-center">
+<img alt="css floats and clears for creating layouts" src="/images/css-float-clear-layout.png" style="  height: 380px; width: 90%; margin: auto; display: block;"/>
+</div>
+
+---
+
+## Float and Clear for layouts (II)
+
+<iframe class="jsfiddle" width="100%" height="90%" style="display:inline"  src="//jsfiddle.net/kalharbi/8txqzv9h/embedded/html,css,result" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+ 
+---
+
+# Flexbox
+
+- [Flexbox ↗](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox), the flexible box layout, is an essential layout model for creating responsive layouts that adapt to different screen sizes and devices.
+- It is a one-dimensional layout model for distributing space between items.
+- It provides a flexible way to align and arrange items within a container, even when their sizes are unknown or dynamic.
+- It is a **a single-direction layout  model**, where items are layed out either in horizontal rows or vertical columns.
+
+---
+layout: two-cols
+---
+
+## Flexbox (II)
+
+- A Flexbox container is an element that has its display property set to `flex` or `inline-flex`.
+- The `justify-content` property is used to distribute space around the flex items.
+- The `align-items` property is used to align the flex items along the cross axis (vertically in this case).
+
+
+::right::
+
+```html
+  <div class="flex-container">
+    <div class="flex-item">Item 1</div>
+    <div class="flex-item">Item 2</div>
+    <div class="flex-item">Item 3</div>
+  </div>
+```
+
+```css
+    .flex-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+```
+
+![](/images/css-flexbox-container-items.png)
+
+---
+
+## Flexbox (III)
+- The `flex-direction` property in Flexbox defines the direction in which the flex items are placed in the flex container:
+  - `row`: horizontal
+  - `row-reverse` horizontal with items placed in a row from right to left.
+  - `column`: vertical
+  - `column-reverse`: vertical with items placed in a row from bottom to top.
+
+---
+
+## Flexbox (IV)
+
+<iframe class="jsfiddle" width="100%" height="90%" style="display:inline"  src="//jsfiddle.net/kalharbi/0dscpvny/embedded/html,css,result" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+
+
+---
+
+
+## GridLayout
+
+---
+
+## Wrapping up
+- We have seen how CSS is used to define the style and layout of a web page.
+- We have learned about the following CSS topics:
+  - CSS Properties and Selectors
+  - The CSS Box Model
+  - CSS Units
+  - Cascading Order in CSS
+  - CSS Specificity
+  - Floating and Positioning
+  - Flexible Box Layout
+  - Grid Layout
+  - Transitions and Animations
+- Coming up next: Learn JavaScript to add interactivity and dynamic functionality to webpages 👨🏻‍💻🇯‌🇸‌👩‍💻
+
+---
+
+## References
+- Mozilla Developer Network (MDN) CSS. Retrieved from https://developer.mozilla.org/en-US/docs/Web/CSS.
+-  Meyer, E. and Weyl, E. 2023. CSS: The Definitive Guide. 5th Ed. O'Reilly Media.
